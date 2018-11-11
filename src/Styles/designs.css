@@ -1,0 +1,25 @@
+.root{
+    -fx-font: 15px Calibri;
+}
+
+.text-headers{
+    -fx-font: 20px Calibri;
+    -fx-font-weight: bold;
+    -fx-text-fill: black;
+}
+.dark-button{
+    -fx-background-color: #454545;
+    -fx-font: 15px Calibri;
+    -fx-font-weight: bold;
+    -fx-text-fill:  white;
+}
+.dark-button:hover{
+    -fx-background-color: #f27920;
+}
+.orange-buton{
+    -fx-background-color:  #f27920;
+    -fx-font: 15px Calibri;
+    -fx-font-weight: bold;
+    -fx-text-fill:  white;
+}
+

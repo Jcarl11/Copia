@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="borderpane_main" prefHeight="705.0" prefWidth="1056.0" stylesheets="@../Styles/designs.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="data_base.FXMLDocumentController">
+   <top>
+      <HBox style="-fx-background-color: #f27920;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="109.0" fitWidth="266.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@AlternativeLogo.png" />
+               </image>
+            </ImageView>
+            <Region HBox.hgrow="ALWAYS" />
+            <AnchorPane prefHeight="100.0" prefWidth="278.0">
+               <children>
+                  <TextField layoutX="32.0" layoutY="61.0" prefHeight="25.0" prefWidth="232.0" promptText="Search" />
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </top>
+   <left>
+      <AnchorPane BorderPane.alignment="TOP_CENTER">
+         <children>
+            <GridPane prefHeight="284.0" prefWidth="181.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="181.0" minWidth="10.0" percentWidth="100.0" prefWidth="181.0" />
+                  <ColumnConstraints maxWidth="0.0" minWidth="0.0" prefWidth="0.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="20.0" percentHeight="100.0" vgrow="ALWAYS" />
+                <RowConstraints minHeight="20.0" percentHeight="100.0" vgrow="ALWAYS" />
+                <RowConstraints minHeight="20.0" percentHeight="100.0" vgrow="ALWAYS" />
+                  <RowConstraints minHeight="20.0" percentHeight="100.0" vgrow="ALWAYS" />
+                  <RowConstraints minHeight="20.0" percentHeight="100.0" vgrow="ALWAYS" />
+              </rowConstraints>
+               <children>
+                  <AnchorPane GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <Button fx:id="button_client" alignment="CENTER" mnemonicParsing="false" onAction="#clientOnClicked" prefHeight="85.0" prefWidth="181.0" styleClass="dark-button" text="CLIENT" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <Button fx:id="button_suppliers" alignment="CENTER" mnemonicParsing="false" onAction="#suppliersOnClicked" prefHeight="86.0" prefWidth="181.0" styleClass="dark-button" text="SUPPLIERS" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="85.0" prefWidth="181.0" styleClass="dark-button" text="CONTRACTORS" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="86.0" prefWidth="181.0" styleClass="dark-button" text="CONSULTANTS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <Button fx:id="button_specifications" alignment="CENTER" mnemonicParsing="false" onAction="#specificationsClicked" prefHeight="85.0" prefWidth="181.0" styleClass="dark-button" text="SPECIFICATIONS" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+         </children>
+      </AnchorPane>
+   </left>
+   <bottom>
+      <HBox prefHeight="62.0" prefWidth="865.0" style="-fx-background-color: #f2f2f2;" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="62.0" prefWidth="160.0">
+               <children>
+                  <Hyperlink alignment="CENTER" prefHeight="55.0" prefWidth="161.0" text="SIGNOUT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <font>
+                        <Font name="Calibri Bold" size="15.0" />
+                     </font>
+                  </Hyperlink>
+               </children>
+            </AnchorPane>
+            <Region HBox.hgrow="ALWAYS" />
+            <HBox alignment="CENTER" spacing="20.0">
+               <children>
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#resetFieldsOnClicked" prefHeight="29.0" prefWidth="163.0" style="-fx-background-color: #f27920;" styleClass="orange-buton" text="RESET FIELDS" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="29.0" prefWidth="163.0" style="-fx-background-color: #f27920;" styleClass="orange-buton" text="UPLOAD" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="15.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+   </bottom>
+   <center>
+      <AnchorPane fx:id="anchorpane_main" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <GridPane fx:id="gridpane_specifications" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane fx:id="gridpane_consultants" visible="false">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane fx:id="gridpane_contractors" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane fx:id="gridpane_suppliers" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <columnConstraints>
+                  <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="199.0" minWidth="10.0" prefWidth="106.0" />
+                  <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="263.0" minWidth="10.0" prefWidth="263.0" />
+                  <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="95.0" minWidth="10.0" prefWidth="46.0" />
+                  <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="95.0" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="95.0" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="70.0" minHeight="20.0" valignment="CENTER" vgrow="ALWAYS" />
+                  <RowConstraints maxHeight="70.0" minHeight="20.0" valignment="CENTER" vgrow="ALWAYS" />
+                  <RowConstraints maxHeight="70.0" minHeight="20.0" valignment="CENTER" vgrow="ALWAYS" />
+                  <RowConstraints maxHeight="70.0" minHeight="20.0" valignment="CENTER" vgrow="ALWAYS" />
+                  <RowConstraints maxHeight="70.0" minHeight="20.0" valignment="CENTER" vgrow="ALWAYS" />
+                  <RowConstraints maxHeight="70.0" minHeight="20.0" valignment="CENTER" vgrow="ALWAYS" />
+                  <RowConstraints maxHeight="70.0" minHeight="20.0" valignment="CENTER" vgrow="ALWAYS" />
+                  <RowConstraints maxHeight="70.0" minHeight="20.0" valignment="CENTER" vgrow="ALWAYS" />
+               </rowConstraints>
+               <children>
+                  <AnchorPane GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <Label prefHeight="63.0" prefWidth="239.0" styleClass="text-headers" text="SUPPLIERS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnSpan="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <TextField prefHeight="67.0" prefWidth="287.0" promptText="Representative" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnSpan="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <TextField prefHeight="66.0" prefWidth="325.0" promptText="Position" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnSpan="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <TextField prefHeight="65.0" prefWidth="355.0" promptText="Company Name" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnSpan="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <TextField prefHeight="62.0" prefWidth="379.0" promptText="Brand" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnSpan="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <ComboBox fx:id="combobox_suppliers_industry" prefHeight="68.0" prefWidth="399.0" promptText="Industry" styleClass="text-headers" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnSpan="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <ComboBox fx:id="combobox_suppliers_type" prefHeight="67.0" prefWidth="399.0" promptText="Type" styleClass="text-headers" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.hgrow="ALWAYS" GridPane.rowIndex="7" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <Button fx:id="button_suppliers_choosefile" mnemonicParsing="false" onAction="#button_suppliers_choosefileOnClick" prefHeight="58.0" prefWidth="399.0" styleClass="orange-buton" text="Choose File" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.rowSpan="4" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <ListView fx:id="listview_suppliers_FiletoUpload" prefHeight="272.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <Button fx:id="button_suppliers_preview" mnemonicParsing="false" onAction="#button_suppliers_previewOnClick" prefHeight="68.0" prefWidth="95.0" styleClass="orange-buton" text="Preview" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <Button fx:id="button_suppliers_remove" mnemonicParsing="false" onAction="#button_suppliers_removeOnClick" prefHeight="68.0" prefWidth="95.0" styleClass="orange-buton" text="Remove" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+            <GridPane fx:id="gridpane_client" prefHeight="543.0" prefWidth="515.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <columnConstraints>
+                  <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="199.0" minWidth="10.0" prefWidth="106.0" />
+                  <ColumnConstraints hgrow="ALWAYS" maxWidth="263.0" minWidth="10.0" prefWidth="263.0" />
+                  <ColumnConstraints hgrow="ALWAYS" maxWidth="95.0" minWidth="10.0" prefWidth="46.0" />
+                  <ColumnConstraints hgrow="ALWAYS" maxWidth="95.0" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="ALWAYS" maxWidth="95.0" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" percentHeight="100.0" prefHeight="30.0" valignment="CENTER" vgrow="ALWAYS" />
+                  <RowConstraints maxHeight="140.0" minHeight="10.0" percentHeight="100.0" prefHeight="10.0" vgrow="ALWAYS" />
+                  <RowConstraints maxHeight="202.0" minHeight="10.0" percentHeight="100.0" prefHeight="41.0" vgrow="ALWAYS" />
+                  <RowConstraints maxHeight="344.0" minHeight="10.0" percentHeight="100.0" prefHeight="210.0" vgrow="ALWAYS" />
+                  <RowConstraints maxHeight="319.0" minHeight="10.0" percentHeight="100.0" prefHeight="10.0" vgrow="ALWAYS" />
+                  <RowConstraints maxHeight="289.0" minHeight="10.0" percentHeight="100.0" prefHeight="10.0" vgrow="ALWAYS" />
+                  <RowConstraints maxHeight="289.0" minHeight="5.0" percentHeight="100.0" prefHeight="5.0" vgrow="ALWAYS" />
+               </rowConstraints>
+               <children>
+                  <AnchorPane GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <Label prefHeight="95.0" prefWidth="199.0" styleClass="text-headers" text="CLIENT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnSpan="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <TextField prefHeight="55.0" prefWidth="348.0" promptText="Representative" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnSpan="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <TextField prefHeight="55.0" prefWidth="547.0" promptText="Position" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnSpan="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <TextField prefHeight="55.0" prefWidth="547.0" promptText="Company Name" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnSpan="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.vgrow="ALWAYS">
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                     <children>
+                        <ComboBox fx:id="combobox_industry" prefHeight="58.0" prefWidth="514.0" promptText="Industry" styleClass="text-headers" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnSpan="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS">
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                     <children>
+                        <ComboBox fx:id="combobox_type" prefHeight="57.0" prefWidth="514.0" promptText="Type" styleClass="text-headers" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <Button fx:id="button_clients_choosefile" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#button_clients_choosefileOnClick" prefHeight="67.0" prefWidth="157.0" styleClass="orange-buton" text="Choose File" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="3">
+                     <children>
+                        <ListView fx:id="listview_client_FiletoUpload" prefHeight="323.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="4">
+                     <children>
+                        <Button fx:id="button_client_preview" mnemonicParsing="false" onAction="#button_client_previewOnClick" prefHeight="78.0" prefWidth="95.0" styleClass="orange-buton" text="Preview" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="5">
+                     <children>
+                        <Button fx:id="button_client_remove" mnemonicParsing="false" onAction="#button_client_removeOnClick" prefHeight="77.0" prefWidth="95.0" styleClass="orange-buton" text="Remove" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+            <GridPane fx:id="gridpane_specifications" alignment="CENTER_LEFT" prefHeight="543.0" prefWidth="875.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="193.0" minWidth="10.0" prefWidth="159.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="176.0" minWidth="10.0" prefWidth="86.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="171.0" minWidth="0.0" prefWidth="171.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="27.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="162.0" minHeight="10.0" percentHeight="100.0" prefHeight="110.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="227.0" minHeight="10.0" percentHeight="100.0" prefHeight="98.0" valignment="CENTER" vgrow="ALWAYS" />
+                <RowConstraints maxHeight="163.0" minHeight="10.0" percentHeight="100.0" prefHeight="76.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="120.0" minHeight="10.0" percentHeight="100.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="92.0" minHeight="10.0" percentHeight="100.0" prefHeight="47.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="81.0" minHeight="10.0" percentHeight="100.0" prefHeight="66.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="61.0" minHeight="10.0" percentHeight="100.0" prefHeight="43.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="61.0" minHeight="10.0" percentHeight="100.0" prefHeight="43.0" valignment="CENTER" vgrow="ALWAYS" />
+              </rowConstraints>
+               <children>
+                  <AnchorPane GridPane.columnSpan="2">
+                     <children>
+                        <Label prefHeight="78.0" prefWidth="298.0" styleClass="text-headers" text="TECHNICAL SPECIFICATIONS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <TextField prefHeight="77.0" prefWidth="298.0" promptText="Document Title" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <TextField prefHeight="78.0" prefWidth="193.0" promptText="Division (Numerical)" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnSpan="3" GridPane.rowIndex="3">
+                     <children>
+                        <TextField prefHeight="77.0" prefWidth="193.0" promptText="Section (Numerical)" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnSpan="3" GridPane.rowIndex="4">
+                     <children>
+                        <TextField prefHeight="28.0" prefWidth="179.0" promptText="Type (Numerical)" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnSpan="3" GridPane.rowIndex="5" GridPane.rowSpan="2">
+                     <children>
+                        <TextArea prefHeight="211.0" prefWidth="571.0" promptText="Keywords(Separate with comma)" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.rowSpan="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <ListView fx:id="listview_specifications_FiletoUpload" prefHeight="271.0" prefWidth="232.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
+                     <children>
+                        <Button fx:id="button_specifications_preview" mnemonicParsing="false" onAction="#button_specifications_previewOnClick" styleClass="orange-buton" text="Preview" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.rowIndex="7">
+                     <children>
+                        <Button fx:id="button_specifications_choosefile" mnemonicParsing="false" onAction="#button_specifications_choosefileOnClick" prefHeight="68.0" prefWidth="193.0" styleClass="orange-buton" text="Choose file" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="6">
+                     <children>
+                        <Button fx:id="button_specifications_remove" mnemonicParsing="false" onAction="#button_specifications_removeOnClick" prefHeight="68.0" prefWidth="171.0" styleClass="orange-buton" text="Remove" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+         </children>
+      </AnchorPane>
+   </center>
+   <right>
+      <AnchorPane fx:id="anchorpane_viewdocument" BorderPane.alignment="CENTER" />
+   </right>
+</BorderPane>
