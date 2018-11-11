@@ -25,7 +25,7 @@ public class DatabaseQuery
         connection = (HttpURLConnection) this.url.openConnection();   
     }
     
-    public ObservableList<String> RetrieveComboboxData(String path, String method) throws Exception
+    public ObservableList<String> RetrieveComboboxData(String method) throws Exception
     {
         ObservableList<String> list = FXCollections.observableArrayList();
         connection.setRequestMethod(method);

@@ -62,6 +62,7 @@ public class FXMLDocumentController implements Initializable
         if(combobox_industry.getItems().size() <= 0 || combobox_type.getItems().size() <= 0)
         {
             dbQuery = new DatabaseQuery("https://concipiotektura.back4app.io/classes/ComboboxData");
+            combobox_industry.getItems().addAll(dbQuery.RetrieveComboboxData("GET"));
             combobox_type.getItems().add("Corporate");
             combobox_type.getItems().add("Private");
             combobox_type.getItems().add("Government");
