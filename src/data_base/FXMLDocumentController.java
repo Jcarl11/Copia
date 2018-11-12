@@ -24,7 +24,9 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import MiscellaneousClasses.*;
+import java.text.Collator;
 import java.util.ArrayList;
+import javafx.collections.transformation.SortedList;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.GridPane;
 import org.apache.commons.io.FilenameUtils;
@@ -254,10 +256,10 @@ public class FXMLDocumentController implements Initializable
         SectionsManager.clearThis(anchorpane_main);
         try
         {
-            combobox_client_industry.getItems().addAll(dbQuery.RetrieveComboboxData("https://concipiotektura.back4app.io/classes/ComboboxData?where={\"Field\":\"Industry\",\"Category\":\"Client\"}", "GET"));
-            combobox_client_type.getItems().addAll(dbQuery.RetrieveComboboxData("https://concipiotektura.back4app.io/classes/ComboboxData?where={\"Field\":\"Type\",\"Category\":\"Client\"}","GET"));
-            combobox_suppliers_industry.getItems().addAll(dbQuery.RetrieveComboboxData("https://concipiotektura.back4app.io/classes/ComboboxData?where={\"Field\":\"Industry\",\"Category\":\"Suppliers\"}", "GET"));
-            combobox_suppliers_type.getItems().addAll(dbQuery.RetrieveComboboxData("https://concipiotektura.back4app.io/classes/ComboboxData?where={\"Field\":\"Type\",\"Category\":\"Suppliers\"}", "GET"));
+            combobox_client_industry.setItems(new SortedList<String>(dbQuery.RetrieveComboboxData("https://concipiotektura.back4app.io/classes/ComboboxData?where={\"Field\":\"Industry\",\"Category\":\"Client\"}", "GET"),Collator.getInstance()));
+            combobox_client_type.setItems(new SortedList<String>(dbQuery.RetrieveComboboxData("https://concipiotektura.back4app.io/classes/ComboboxData?where={\"Field\":\"Type\",\"Category\":\"Client\"}","GET"),Collator.getInstance()));
+            combobox_suppliers_industry.setItems(new SortedList<String>(dbQuery.RetrieveComboboxData("https://concipiotektura.back4app.io/classes/ComboboxData?where={\"Field\":\"Industry\",\"Category\":\"Suppliers\"}", "GET"),Collator.getInstance()));
+            combobox_suppliers_type.setItems(new SortedList<String>(dbQuery.RetrieveComboboxData("https://concipiotektura.back4app.io/classes/ComboboxData?where={\"Field\":\"Type\",\"Category\":\"Suppliers\"}", "GET"),Collator.getInstance()));
             
         }catch(Exception ex)
         {
