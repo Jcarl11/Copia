@@ -79,7 +79,7 @@
                   </AnchorPane>
                   <AnchorPane GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                      <children>
-                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="85.0" prefWidth="181.0" styleClass="dark-button" text="CONTRACTORS" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <Button fx:id="button_contractors" alignment="CENTER" mnemonicParsing="false" onAction="#button_contractorsOnClick" prefHeight="85.0" prefWidth="181.0" styleClass="dark-button" text="CONTRACTORS" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <font>
                               <Font name="Calibri Bold" size="15.0" />
                            </font>
@@ -154,7 +154,7 @@
    <center>
       <AnchorPane fx:id="anchorpane_main" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <GridPane fx:id="gridpane_specifications" alignment="CENTER_LEFT" prefHeight="543.0" prefWidth="875.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <GridPane fx:id="gridpane_specifications" alignment="CENTER_LEFT" prefHeight="543.0" prefWidth="875.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="193.0" minWidth="10.0" prefWidth="159.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="176.0" minWidth="10.0" prefWidth="86.0" />
@@ -271,15 +271,116 @@
                   <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                </rowConstraints>
             </GridPane>
-            <GridPane fx:id="gridpane_contractors" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <GridPane fx:id="gridpane_contractors" prefHeight="534.0" prefWidth="875.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                  <ColumnConstraints hgrow="ALWAYS" maxWidth="199.0" minWidth="10.0" prefWidth="106.0" />
+                  <ColumnConstraints hgrow="ALWAYS" maxWidth="263.0" minWidth="10.0" prefWidth="263.0" />
+                  <ColumnConstraints hgrow="ALWAYS" maxWidth="95.0" minWidth="10.0" prefWidth="46.0" />
+                  <ColumnConstraints hgrow="ALWAYS" maxWidth="95.0" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="ALWAYS" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
                <rowConstraints>
-                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="61.0" minHeight="10.0" prefHeight="61.0" vgrow="ALWAYS" />
+                  <RowConstraints maxHeight="80.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="80.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="80.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="80.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="80.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="80.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="60.0" minHeight="30.0" prefHeight="30.0" vgrow="ALWAYS" />
                </rowConstraints>
+               <children>
+                  <AnchorPane GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <Label prefHeight="23.0" prefWidth="191.0" styleClass="text-headers" text="Contractors" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <TextField prefHeight="68.0" prefWidth="191.0" promptText="Representative" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <TextField prefHeight="68.0" prefWidth="191.0" promptText="Position" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <TextField prefHeight="68.0" prefWidth="191.0" promptText="Company Name" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <TextField prefHeight="68.0" prefWidth="191.0" promptText="Specialization" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <ComboBox fx:id="combobox_contractors_industry" prefHeight="67.0" prefWidth="191.0" promptText="Industry" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <ComboBox fx:id="combobox_contractors_classificiation" prefHeight="67.0" prefWidth="191.0" promptText="Classification" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.hgrow="ALWAYS" GridPane.rowIndex="7" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <Button fx:id="button_contractors_choosefile" mnemonicParsing="false" onAction="#button_contractors_choosefileOnClick" prefHeight="30.0" prefWidth="191.0" styleClass="orange-buton" text="Choose File" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="3">
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                     <children>
+                        <ListView fx:id="listview_contractors_FiletoUpload" prefHeight="215.0" prefWidth="268.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="4">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#button_contractors_previewOnClick" prefHeight="69.0" prefWidth="288.0" styleClass="orange-buton" text="Preview" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+                  <AnchorPane GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="5">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#button_contractors_removeOnClick" prefHeight="69.0" prefWidth="288.0" styleClass="orange-buton" text="Remove" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </AnchorPane>
+               </children>
             </GridPane>
-            <GridPane fx:id="gridpane_suppliers" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <GridPane fx:id="gridpane_suppliers" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <columnConstraints>
                   <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="199.0" minWidth="10.0" prefWidth="106.0" />
                   <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="263.0" minWidth="10.0" prefWidth="263.0" />
@@ -388,7 +489,7 @@
                   </AnchorPane>
                </children>
             </GridPane>
-            <GridPane fx:id="gridpane_client" prefHeight="543.0" prefWidth="515.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <GridPane fx:id="gridpane_client" prefHeight="543.0" prefWidth="515.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <columnConstraints>
                   <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="199.0" minWidth="10.0" prefWidth="106.0" />
                   <ColumnConstraints hgrow="ALWAYS" maxWidth="263.0" minWidth="10.0" prefWidth="263.0" />

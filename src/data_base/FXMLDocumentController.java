@@ -41,7 +41,8 @@ public class FXMLDocumentController implements Initializable
     PreviewImage previewimage = new PreviewImage();
     DatabaseQuery dbQuery = new DatabaseQuery();
     @FXML
-    private ListView<String> listview_specifications_FiletoUpload,listview_client_FiletoUpload,listview_suppliers_FiletoUpload;
+    private ListView<String> listview_specifications_FiletoUpload,listview_client_FiletoUpload,listview_suppliers_FiletoUpload, 
+            listview_contractors_FiletoUpload;
     @FXML
     private AnchorPane anchorpane_main,anchorpane_viewdocument;
     @FXML
@@ -234,6 +235,71 @@ public class FXMLDocumentController implements Initializable
             {
                 int index = listview_suppliers_FiletoUpload.getSelectionModel().getSelectedIndex();
                 listview_suppliers_FiletoUpload.getItems().remove(index);
+            }
+        }
+    }
+    
+    @FXML
+    void button_contractorsOnClick(ActionEvent event)
+    {
+        SectionsManager.showPane(anchorpane_main, gridpane_contractors);
+    }
+    
+    @FXML
+    void button_contractors_choosefileOnClick(ActionEvent event) 
+    {
+        JFileChooser chooser = new JFileChooser();
+        chooser.setMultiSelectionEnabled(true);
+        chooser.setFileFilter(new FileNameExtensionFilter("Files", "pdf","jpg","png","gif"));
+        chooser.showOpenDialog(null);
+        File[] selectedFiles = chooser.getSelectedFiles();
+        if(selectedFiles != null)
+        {
+            for(File getPath: selectedFiles)
+            {
+                listview_contractors_FiletoUpload.getItems().add(getPath.getAbsolutePath().toString());
+            }
+        }
+    }
+    
+    @FXML
+    void button_contractors_previewOnClick(ActionEvent event) 
+    {
+        if(listview_contractors_FiletoUpload.getSelectionModel().getSelectedItem() != null)
+        {
+            anchorpane_viewdocument.getChildren().clear();
+            String extension = FilenameUtils.getExtension(listview_contractors_FiletoUpload.getSelectionModel().getSelectedItem());
+            if(extension.equalsIgnoreCase("png") || extension.equalsIgnoreCase("jpg") || extension.equalsIgnoreCase("gif"))
+            {
+                anchorpane_viewdocument.getChildren().add(previewimage.showImage(listview_contractors_FiletoUpload.getSelectionModel().getSelectedItem()));
+            }
+            else if(extension.equalsIgnoreCase("pdf"))
+            {
+                try
+                {
+                    anchorpane_viewdocument.getChildren().add(previewpdf.showPDF(listview_contractors_FiletoUpload.getSelectionModel().getSelectedItem()));
+                }catch(Exception ex)
+                {
+                    ex.printStackTrace();
+                }
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "File type not supported for preview");
+            }
+        }
+    }
+    @FXML
+    void button_contractors_removeOnClick(ActionEvent event) 
+    {
+         if(listview_contractors_FiletoUpload.getSelectionModel().getSelectedItem() != null)
+        {
+            int selection = JOptionPane.showConfirmDialog(null, "Delete selected fie?", "Confirm", 
+                            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if(selection == JOptionPane.YES_OPTION)
+            {
+                int index = listview_contractors_FiletoUpload.getSelectionModel().getSelectedIndex();
+                listview_contractors_FiletoUpload.getItems().remove(index);
             }
         }
     }
