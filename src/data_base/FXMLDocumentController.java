@@ -47,7 +47,7 @@ public class FXMLDocumentController implements Initializable
     private GridPane gridpane_specifications,gridpane_consultants,gridpane_contractors,gridpane_suppliers
             ,gridpane_client;
     @FXML
-    private ComboBox<String> combobox_industry,combobox_type,combobox_suppliers_industry,combobox_suppliers_type;
+    private ComboBox<String> combobox_client_industry,combobox_client_type,combobox_suppliers_industry,combobox_suppliers_type;
     
     @FXML
     void specificationsClicked(ActionEvent event)
@@ -59,13 +59,13 @@ public class FXMLDocumentController implements Initializable
     void clientOnClicked(ActionEvent event)  throws Exception
     {
         SectionsManager.showPane(anchorpane_main, gridpane_client);
-        if(combobox_industry.getItems().size() <= 0 || combobox_type.getItems().size() <= 0)
+        if(combobox_client_industry.getItems().size() <= 0 || combobox_client_type.getItems().size() <= 0)
         {
             dbQuery = new DatabaseQuery("https://concipiotektura.back4app.io/classes/ComboboxData");
-            combobox_industry.getItems().addAll(dbQuery.RetrieveComboboxData("GET"));
-            combobox_type.getItems().add("Corporate");
-            combobox_type.getItems().add("Private");
-            combobox_type.getItems().add("Government");
+            combobox_client_industry.getItems().addAll(dbQuery.RetrieveComboboxData("GET"));
+            combobox_client_type.getItems().add("Corporate");
+            combobox_client_type.getItems().add("Private");
+            combobox_client_type.getItems().add("Government");
         }
         
     }
