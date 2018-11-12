@@ -38,7 +38,7 @@ public class FXMLDocumentController implements Initializable
     
     PreviewPDF previewpdf = new PreviewPDF();
     PreviewImage previewimage = new PreviewImage();
-    DatabaseQuery dbQuery;
+    DatabaseQuery dbQuery = new DatabaseQuery();
     @FXML
     private ListView<String> listview_specifications_FiletoUpload,listview_client_FiletoUpload,listview_suppliers_FiletoUpload;
     @FXML
@@ -49,104 +49,13 @@ public class FXMLDocumentController implements Initializable
     @FXML
     private ComboBox<String> combobox_client_industry,combobox_client_type,combobox_suppliers_industry,combobox_suppliers_type;
     
-    @FXML
-    void specificationsClicked(ActionEvent event)
-    {
-        SectionsManager.showPane(anchorpane_main, gridpane_specifications);
-    }
+    
     
     @FXML
     void clientOnClicked(ActionEvent event)  throws Exception
     {
         SectionsManager.showPane(anchorpane_main, gridpane_client);
-        if(combobox_client_industry.getItems().size() <= 0 || combobox_client_type.getItems().size() <= 0)
-        {
-            dbQuery = new DatabaseQuery("https://concipiotektura.back4app.io/classes/ComboboxData");
-            combobox_client_industry.getItems().addAll(dbQuery.RetrieveComboboxData("GET"));
-            combobox_client_type.getItems().add("Corporate");
-            combobox_client_type.getItems().add("Private");
-            combobox_client_type.getItems().add("Government");
-        }
-        
     }
-    
-    @FXML
-    void suppliersOnClicked(ActionEvent event)
-    {
-        SectionsManager.showPane(anchorpane_main, gridpane_suppliers);
-        combobox_suppliers_industry.getItems().add("Construction");
-        combobox_suppliers_industry.getItems().add("Food and Beverage");
-        combobox_suppliers_industry.getItems().add("Retail");
-        combobox_suppliers_industry.getItems().add("Hospitality");  
-        combobox_suppliers_industry.getItems().add("Graphics and Printing");
-        combobox_suppliers_industry.getItems().add("Information Technology");
-        combobox_suppliers_industry.getItems().add("Art and Design");
-        
-       
-        combobox_suppliers_type.getItems().add("Corporate");
-        combobox_suppliers_type.getItems().add("Private");
-        combobox_suppliers_type.getItems().add("Finishing");
-    }
-    
-     @FXML
-    void button_specifications_choosefileOnClick(ActionEvent event) 
-    {
-        JFileChooser chooser = new JFileChooser();
-        chooser.setMultiSelectionEnabled(true);
-        chooser.setFileFilter(new FileNameExtensionFilter("PDF Files", "pdf"));
-        chooser.showOpenDialog(null);
-        File[] selectedFile = chooser.getSelectedFiles();
-        if(selectedFile != null)
-        {
-            for(File getPath: selectedFile)
-            {
-                listview_specifications_FiletoUpload.getItems().add(getPath.getAbsolutePath().toString());
-            }
-        }
-    }
-    
-    
-    @FXML
-    void resetFieldsOnClicked(ActionEvent event) 
-    {
-        previewpdf.clear();
-    }
-    
-    @FXML
-    void button_specifications_previewOnClick(ActionEvent event)
-    {
-        
-        if(listview_specifications_FiletoUpload.getSelectionModel().getSelectedItem() != null)
-        {
-           anchorpane_viewdocument.getChildren().clear();
-            try{
-                anchorpane_viewdocument.getChildren().add(previewpdf.showPDF(listview_specifications_FiletoUpload.getSelectionModel().getSelectedItem()));
-            }catch(Exception ex)
-            {
-                ex.printStackTrace();
-            }
-        }
-        else
-        {
-            System.out.println("Error");
-        }
-    }
-    
-    @FXML
-    void button_specifications_removeOnClick(ActionEvent event) 
-    {
-         if(listview_suppliers_FiletoUpload.getSelectionModel().getSelectedItem() != null)
-        {
-            int selection = JOptionPane.showConfirmDialog(null, "Delete selected fie?", "Confirm", 
-                            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-            if(selection == JOptionPane.YES_OPTION)
-            {
-                int index = listview_suppliers_FiletoUpload.getSelectionModel().getSelectedIndex();
-                listview_suppliers_FiletoUpload.getItems().remove(index);
-            }
-        }
-    }
-    
     @FXML
     void button_clients_choosefileOnClick(ActionEvent event)
     {
@@ -204,6 +113,12 @@ public class FXMLDocumentController implements Initializable
                 listview_client_FiletoUpload.getItems().remove(index);
             }
         }
+    }
+    
+    @FXML
+    void suppliersOnClicked(ActionEvent event)
+    {
+        SectionsManager.showPane(anchorpane_main, gridpane_suppliers);
     }
     
     @FXML
@@ -266,11 +181,88 @@ public class FXMLDocumentController implements Initializable
         }
     }
     
+    @FXML
+    void specificationsClicked(ActionEvent event)
+    {
+        SectionsManager.showPane(anchorpane_main, gridpane_specifications);
+    }
     
     
+    
+     @FXML
+    void button_specifications_choosefileOnClick(ActionEvent event) 
+    {
+        JFileChooser chooser = new JFileChooser();
+        chooser.setMultiSelectionEnabled(true);
+        chooser.setFileFilter(new FileNameExtensionFilter("PDF Files", "pdf"));
+        chooser.showOpenDialog(null);
+        File[] selectedFile = chooser.getSelectedFiles();
+        if(selectedFile != null)
+        {
+            for(File getPath: selectedFile)
+            {
+                listview_specifications_FiletoUpload.getItems().add(getPath.getAbsolutePath().toString());
+            }
+        }
+    }
+    
+    @FXML
+    void button_specifications_previewOnClick(ActionEvent event)
+    {
+        
+        if(listview_specifications_FiletoUpload.getSelectionModel().getSelectedItem() != null)
+        {
+           anchorpane_viewdocument.getChildren().clear();
+            try{
+                anchorpane_viewdocument.getChildren().add(previewpdf.showPDF(listview_specifications_FiletoUpload.getSelectionModel().getSelectedItem()));
+            }catch(Exception ex)
+            {
+                ex.printStackTrace();
+            }
+        }
+        else
+        {
+            System.out.println("Error");
+        }
+    }
+    
+    @FXML
+    void button_specifications_removeOnClick(ActionEvent event) 
+    {
+         if(listview_suppliers_FiletoUpload.getSelectionModel().getSelectedItem() != null)
+        {
+            int selection = JOptionPane.showConfirmDialog(null, "Delete selected fie?", "Confirm", 
+                            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if(selection == JOptionPane.YES_OPTION)
+            {
+                int index = listview_suppliers_FiletoUpload.getSelectionModel().getSelectedIndex();
+                listview_suppliers_FiletoUpload.getItems().remove(index);
+            }
+        }
+    }
+    
+    @FXML
+    void resetFieldsOnClicked(ActionEvent event) 
+    {
+        previewpdf.clear();
+    }
+    
+   
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb) 
+    {
         SectionsManager.clearThis(anchorpane_main);
+        try
+        {
+            combobox_client_industry.getItems().addAll(dbQuery.RetrieveComboboxData("https://concipiotektura.back4app.io/classes/ComboboxData?where={\"Field\":\"Industry\",\"Category\":\"Client\"}", "GET"));
+            combobox_client_type.getItems().addAll(dbQuery.RetrieveComboboxData("https://concipiotektura.back4app.io/classes/ComboboxData?where={\"Field\":\"Type\",\"Category\":\"Client\"}","GET"));
+            combobox_suppliers_industry.getItems().addAll(dbQuery.RetrieveComboboxData("https://concipiotektura.back4app.io/classes/ComboboxData?where={\"Field\":\"Industry\",\"Category\":\"Suppliers\"}", "GET"));
+            combobox_suppliers_type.getItems().addAll(dbQuery.RetrieveComboboxData("https://concipiotektura.back4app.io/classes/ComboboxData?where={\"Field\":\"Type\",\"Category\":\"Suppliers\"}", "GET"));
+            
+        }catch(Exception ex)
+        {
+            ex.printStackTrace();
+        }
     }    
     
 }
