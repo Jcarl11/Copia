@@ -49,7 +49,8 @@ public class FXMLDocumentController implements Initializable
     private GridPane gridpane_specifications,gridpane_consultants,gridpane_contractors,gridpane_suppliers
             ,gridpane_client;
     @FXML
-    private ComboBox<String> combobox_client_industry,combobox_client_type,combobox_suppliers_industry,combobox_suppliers_type;
+    private ComboBox<String> combobox_client_industry,combobox_client_type,combobox_suppliers_industry,combobox_suppliers_type
+            ,combobox_contractors_industry,combobox_contractors_classificiation;
     
     @FXML
     void clientOnClicked(ActionEvent event)  throws Exception
@@ -320,7 +321,8 @@ public class FXMLDocumentController implements Initializable
             combobox_client_type.setItems(new SortedList<String>(dbQuery.RetrieveComboboxData("https://concipiotektura.back4app.io/classes/ComboboxData?where={\"Field\":\"Type\",\"Category\":\"Client\"}","GET"),Collator.getInstance()));
             combobox_suppliers_industry.setItems(new SortedList<String>(dbQuery.RetrieveComboboxData("https://concipiotektura.back4app.io/classes/ComboboxData?where={\"Field\":\"Industry\",\"Category\":\"Suppliers\"}", "GET"),Collator.getInstance()));
             combobox_suppliers_type.setItems(new SortedList<String>(dbQuery.RetrieveComboboxData("https://concipiotektura.back4app.io/classes/ComboboxData?where={\"Field\":\"Type\",\"Category\":\"Suppliers\"}", "GET"),Collator.getInstance()));
-            
+            combobox_contractors_industry.setItems(new SortedList<String>(dbQuery.RetrieveComboboxData("https://concipiotektura.back4app.io/classes/ComboboxData?where={\"Field\":\"Industry\",\"Category\":\"Contractors\"}", "GET")));
+            combobox_contractors_classificiation.setItems(new SortedList<String>(dbQuery.RetrieveComboboxData("https://concipiotektura.back4app.io/classes/ComboboxData?where={\"Field\":\"Classification\",\"Category\":\"Contractors\"}", "GET")));
         }catch(Exception ex)
         {
             ex.printStackTrace();
