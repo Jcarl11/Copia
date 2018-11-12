@@ -37,7 +37,6 @@ import org.apache.commons.io.FilenameUtils;
  */
 public class FXMLDocumentController implements Initializable 
 {
-    
     PreviewPDF previewpdf = new PreviewPDF();
     PreviewImage previewimage = new PreviewImage();
     DatabaseQuery dbQuery = new DatabaseQuery();
@@ -50,8 +49,6 @@ public class FXMLDocumentController implements Initializable
             ,gridpane_client;
     @FXML
     private ComboBox<String> combobox_client_industry,combobox_client_type,combobox_suppliers_industry,combobox_suppliers_type;
-    
-    
     
     @FXML
     void clientOnClicked(ActionEvent event)  throws Exception
@@ -189,9 +186,7 @@ public class FXMLDocumentController implements Initializable
         SectionsManager.showPane(anchorpane_main, gridpane_specifications);
     }
     
-    
-    
-     @FXML
+    @FXML
     void button_specifications_choosefileOnClick(ActionEvent event) 
     {
         JFileChooser chooser = new JFileChooser();
@@ -249,7 +244,6 @@ public class FXMLDocumentController implements Initializable
         previewpdf.clear();
     }
     
-   
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
