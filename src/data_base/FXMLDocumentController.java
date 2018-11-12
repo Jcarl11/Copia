@@ -60,19 +60,9 @@ public class FXMLDocumentController implements Initializable
     @FXML
     void button_clients_choosefileOnClick(ActionEvent event)
     {
-        JFileChooser chooser = new JFileChooser();
-        chooser.setMultiSelectionEnabled(true);
-        chooser.setFileFilter(new FileNameExtensionFilter("Files", "pdf","jpg","png","gif"));
-        chooser.showOpenDialog(null);
-        File[] selectedFiles = chooser.getSelectedFiles();
-        if(selectedFiles != null)
-        {
-            for(File getPath: selectedFiles)
-            {
-                listview_client_FiletoUpload.getItems().add(getPath.getAbsolutePath().toString());
-            }
-        }
+        listview_client_FiletoUpload.getItems().addAll(showChooserDialog("pdf","jpg","png","gif"));
     }
+    
     @FXML
     void button_client_previewOnClick(ActionEvent event) 
     {
@@ -125,18 +115,7 @@ public class FXMLDocumentController implements Initializable
     @FXML
     void button_suppliers_choosefileOnClick(ActionEvent event)
     {
-        JFileChooser chooser = new JFileChooser();
-        chooser.setMultiSelectionEnabled(true);
-        chooser.setFileFilter(new FileNameExtensionFilter("Files", "pdf","jpg","png","gif"));
-        chooser.showOpenDialog(null);
-        File[] selectedFiles = chooser.getSelectedFiles();
-        if(selectedFiles != null)
-        {
-            for(File getPath: selectedFiles)
-            {
-                listview_suppliers_FiletoUpload.getItems().add(getPath.getAbsolutePath().toString());
-            }
-        }
+        listview_suppliers_FiletoUpload.getItems().addAll(showChooserDialog("pdf","jpg","png","gif"));
     }
     
     @FXML
@@ -191,18 +170,7 @@ public class FXMLDocumentController implements Initializable
     @FXML
     void button_specifications_choosefileOnClick(ActionEvent event) 
     {
-        JFileChooser chooser = new JFileChooser();
-        chooser.setMultiSelectionEnabled(true);
-        chooser.setFileFilter(new FileNameExtensionFilter("PDF Files", "pdf"));
-        chooser.showOpenDialog(null);
-        File[] selectedFile = chooser.getSelectedFiles();
-        if(selectedFile != null)
-        {
-            for(File getPath: selectedFile)
-            {
-                listview_specifications_FiletoUpload.getItems().add(getPath.getAbsolutePath().toString());
-            }
-        }
+        listview_specifications_FiletoUpload.getItems().addAll(showChooserDialog("pdf"));
     }
     
     @FXML
@@ -249,18 +217,7 @@ public class FXMLDocumentController implements Initializable
     @FXML
     void button_contractors_choosefileOnClick(ActionEvent event) 
     {
-        JFileChooser chooser = new JFileChooser();
-        chooser.setMultiSelectionEnabled(true);
-        chooser.setFileFilter(new FileNameExtensionFilter("Files", "pdf","jpg","png","gif"));
-        chooser.showOpenDialog(null);
-        File[] selectedFiles = chooser.getSelectedFiles();
-        if(selectedFiles != null)
-        {
-            for(File getPath: selectedFiles)
-            {
-                listview_contractors_FiletoUpload.getItems().add(getPath.getAbsolutePath().toString());
-            }
-        }
+        listview_contractors_FiletoUpload.getItems().addAll(showChooserDialog("pdf","jpg","png","gif"));
     }
     
     @FXML
@@ -311,6 +268,24 @@ public class FXMLDocumentController implements Initializable
         previewpdf.clear();
     }
     
+    private ArrayList<String> showChooserDialog(String... acceptableFileTypes)
+    {
+        ArrayList<String> paths = new ArrayList<>();
+        JFileChooser chooser = new JFileChooser();
+        chooser.setMultiSelectionEnabled(true);
+        chooser.setFileFilter(new FileNameExtensionFilter("Files",acceptableFileTypes));
+        chooser.showOpenDialog(null);
+        File[] selectedFiles = chooser.getSelectedFiles();
+        if(selectedFiles != null)
+        {
+            for(File getPath: selectedFiles)
+            {
+                paths.add(getPath.getAbsolutePath().toString());
+            }
+        }
+        return paths;
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
@@ -321,12 +296,17 @@ public class FXMLDocumentController implements Initializable
             combobox_client_type.setItems(new SortedList<String>(dbQuery.RetrieveComboboxData("https://concipiotektura.back4app.io/classes/ComboboxData?where={\"Field\":\"Type\",\"Category\":\"Client\"}","GET"),Collator.getInstance()));
             combobox_suppliers_industry.setItems(new SortedList<String>(dbQuery.RetrieveComboboxData("https://concipiotektura.back4app.io/classes/ComboboxData?where={\"Field\":\"Industry\",\"Category\":\"Suppliers\"}", "GET"),Collator.getInstance()));
             combobox_suppliers_type.setItems(new SortedList<String>(dbQuery.RetrieveComboboxData("https://concipiotektura.back4app.io/classes/ComboboxData?where={\"Field\":\"Type\",\"Category\":\"Suppliers\"}", "GET"),Collator.getInstance()));
-            combobox_contractors_industry.setItems(new SortedList<String>(dbQuery.RetrieveComboboxData("https://concipiotektura.back4app.io/classes/ComboboxData?where={\"Field\":\"Industry\",\"Category\":\"Contractors\"}", "GET")));
-            combobox_contractors_classificiation.setItems(new SortedList<String>(dbQuery.RetrieveComboboxData("https://concipiotektura.back4app.io/classes/ComboboxData?where={\"Field\":\"Classification\",\"Category\":\"Contractors\"}", "GET")));
+            combobox_contractors_industry.setItems(new SortedList<String>(dbQuery.RetrieveComboboxData("https://concipiotektura.back4app.io/classes/ComboboxData?where={\"Field\":\"Industry\",\"Category\":\"Contractors\"}", "GET"), Collator.getInstance()));
+            combobox_contractors_classificiation.setItems(new SortedList<String>(dbQuery.RetrieveComboboxData("https://concipiotektura.back4app.io/classes/ComboboxData?where={\"Field\":\"Classification\",\"Category\":\"Contractors\"}", "GET"), Collator.getInstance()));
         }catch(Exception ex)
         {
             ex.printStackTrace();
         }
+        
+        gridpane_client.setVisible(true);
+        gridpane_suppliers.setVisible(true);
+        gridpane_contractors.setVisible(true);
+        gridpane_specifications.setVisible(true);
     }    
     
 }
