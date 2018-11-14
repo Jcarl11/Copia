@@ -13,13 +13,13 @@ public class ClientEntity
     private String Company_Name;
     private String Industry;
     private String Type;
-    private File[] fileToUpload;
+    private File fileToUpload;
 
-    public File[] getFileToUpload() {
+    public File getFileToUpload() {
         return fileToUpload;
     }
 
-    public void setFileToUpload(File[] fileToUpload) {
+    public void setFileToUpload(File fileToUpload) {
         this.fileToUpload = fileToUpload;
     }
 

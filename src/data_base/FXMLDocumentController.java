@@ -24,6 +24,7 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import MiscellaneousClasses.*;
+import java.nio.file.Files;
 import java.text.Collator;
 import java.util.ArrayList;
 import javafx.collections.transformation.SortedList;
@@ -269,9 +270,23 @@ public class FXMLDocumentController implements Initializable
     @FXML
     void button_upload(ActionEvent event)
     {
-        clientEntity.setRepresentative(textfield_client_representative.getText().trim());
-        clientEntity.setPosition(textfield_client_position.getText().trim());
-        clientEntity.setCompany_Name(textfield_client_companyname.getText().trim());
+        File file = new File("D:/Back Up11-10-18/JOEY/OJT/Project/ProcessFlow.pdf");
+        try
+        {
+            byte[] dataByte = Files.readAllBytes(file.toPath());
+            clientEntity.setRepresentative(textfield_client_representative.getText().trim());
+            clientEntity.setPosition(textfield_client_position.getText().trim());
+            clientEntity.setCompany_Name(textfield_client_companyname.getText().trim());
+            clientEntity.setIndustry(combobox_client_industry.getSelectionModel().getSelectedItem());
+            clientEntity.setType(combobox_client_type.getSelectionModel().getSelectedItem());
+            clientEntity.setFileToUpload(file);
+            
+            dbQuery.SendPostData(clientEntity, "https://concipiotektura.back4app.io/classes/PDFFiles/New.pdf", "POST");
+        }catch(Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        
     }
     
     @FXML

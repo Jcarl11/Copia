@@ -2,10 +2,14 @@ package MiscellaneousClasses;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.json.JSONArray;
@@ -49,6 +53,36 @@ public class DatabaseQuery
             list.add(array.getJSONObject(position).getString("Title"));
         }
         return list;
+    }
+    
+    public void SendPostData(ClientEntity client, String path, String method)
+    {
+        try
+        {
+            this.url = new URL(path);
+            connection = (HttpURLConnection) this.url.openConnection(); 
+            connection.setRequestMethod(method);
+            connection.setDoInput(true);
+            connection.setDoOutput(true);
+            connection.setRequestProperty("X-Parse-Application-Id", APP_ID);
+            connection.setRequestProperty("X-Parse-REST-API-Key", REST_API_KEY);
+            connection.setRequestProperty("Content-Type", "multipart/form-data");
+            
+           
+            
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            StringBuffer response = new StringBuffer();
+            String inputline;
+            while((inputline = bufferedReader.readLine()) != null)
+            {
+                response.append(inputline);
+            }
+            System.out.println(response);
+
+        }catch(Exception ex)
+        {
+            ex.printStackTrace();
+        }
     }
     
 }
