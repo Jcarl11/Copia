@@ -28,6 +28,7 @@ import java.text.Collator;
 import java.util.ArrayList;
 import javafx.collections.transformation.SortedList;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import org.apache.commons.io.FilenameUtils;
 
@@ -40,6 +41,7 @@ public class FXMLDocumentController implements Initializable
     PreviewPDF previewpdf = new PreviewPDF();
     PreviewImage previewimage = new PreviewImage();
     DatabaseQuery dbQuery = new DatabaseQuery();
+    ClientEntity clientEntity = new ClientEntity();
     @FXML
     private ListView<String> listview_specifications_FiletoUpload,listview_client_FiletoUpload,listview_suppliers_FiletoUpload, 
             listview_contractors_FiletoUpload;
@@ -51,6 +53,8 @@ public class FXMLDocumentController implements Initializable
     @FXML
     private ComboBox<String> combobox_client_industry,combobox_client_type,combobox_suppliers_industry,combobox_suppliers_type
             ,combobox_contractors_industry,combobox_contractors_classificiation;
+    @FXML
+    private TextField textfield_client_representative,textfield_client_position,textfield_client_companyname;
     
     @FXML
     void clientOnClicked(ActionEvent event)  throws Exception
@@ -263,7 +267,15 @@ public class FXMLDocumentController implements Initializable
     }
     
     @FXML
-    void resetFieldsOnClicked(ActionEvent event) 
+    void button_upload(ActionEvent event)
+    {
+        clientEntity.setRepresentative(textfield_client_representative.getText().trim());
+        clientEntity.setPosition(textfield_client_position.getText().trim());
+        clientEntity.setCompany_Name(textfield_client_companyname.getText().trim());
+    }
+    
+    @FXML
+    void button_resetfields(ActionEvent event) 
     {
         previewpdf.clear();
     }

@@ -133,12 +133,12 @@
             <Region HBox.hgrow="ALWAYS" />
             <HBox alignment="CENTER" spacing="20.0">
                <children>
-                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#resetFieldsOnClicked" prefHeight="29.0" prefWidth="163.0" style="-fx-background-color: #f27920;" styleClass="orange-buton" text="RESET FIELDS" textFill="WHITE">
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#button_resetfields" prefHeight="29.0" prefWidth="163.0" style="-fx-background-color: #f27920;" styleClass="orange-buton" text="RESET FIELDS" textFill="WHITE">
                      <font>
                         <Font name="Calibri Bold" size="15.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="29.0" prefWidth="163.0" style="-fx-background-color: #f27920;" styleClass="orange-buton" text="UPLOAD" textFill="WHITE">
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#button_upload" prefHeight="29.0" prefWidth="163.0" style="-fx-background-color: #f27920;" styleClass="orange-buton" text="UPLOAD" textFill="WHITE">
                      <font>
                         <Font name="Calibri Bold" size="15.0" />
                      </font>
@@ -170,7 +170,7 @@
                   <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                </rowConstraints>
             </GridPane>
-            <GridPane fx:id="gridpane_specifications" alignment="CENTER_LEFT" prefHeight="543.0" prefWidth="875.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <GridPane fx:id="gridpane_specifications" alignment="CENTER_LEFT" prefHeight="543.0" prefWidth="875.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="193.0" minWidth="10.0" prefWidth="159.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="176.0" minWidth="10.0" prefWidth="86.0" />
@@ -489,7 +489,7 @@
                   </AnchorPane>
                </children>
             </GridPane>
-            <GridPane fx:id="gridpane_client" prefHeight="543.0" prefWidth="515.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <GridPane fx:id="gridpane_client" prefHeight="543.0" prefWidth="515.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <columnConstraints>
                   <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="199.0" minWidth="10.0" prefWidth="106.0" />
                   <ColumnConstraints hgrow="ALWAYS" maxWidth="263.0" minWidth="10.0" prefWidth="263.0" />
@@ -517,7 +517,7 @@
                   </AnchorPane>
                   <AnchorPane GridPane.columnSpan="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
                      <children>
-                        <TextField prefHeight="55.0" prefWidth="348.0" promptText="Representative" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TextField fx:id="textfield_client_representative" prefHeight="55.0" prefWidth="348.0" promptText="Representative" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -529,7 +529,7 @@
                   </AnchorPane>
                   <AnchorPane GridPane.columnSpan="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
                      <children>
-                        <TextField prefHeight="55.0" prefWidth="547.0" promptText="Position" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TextField fx:id="textfield_client_position" prefHeight="55.0" prefWidth="547.0" promptText="Position" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -541,7 +541,7 @@
                   </AnchorPane>
                   <AnchorPane GridPane.columnSpan="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS">
                      <children>
-                        <TextField prefHeight="55.0" prefWidth="547.0" promptText="Company Name" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TextField fx:id="textfield_client_companyname" prefHeight="55.0" prefWidth="547.0" promptText="Company Name" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <font>
                               <Font size="18.0" />
                            </font>
